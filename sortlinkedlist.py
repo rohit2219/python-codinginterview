@@ -14,4 +14,3 @@ class linList(object):
     def __init__(self,head = None):
         self.head = head
         self.size = 0
-    def 

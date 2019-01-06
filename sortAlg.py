@@ -1,3 +1,4 @@
+
 def srtswap(a, b):
     return b, a
 
@@ -88,7 +89,32 @@ def insertionSort(inList):
         inList[j + 1] = hole
         print("moving hole to inlist[j]", hole, inList[j])
     return inList
+## 4 quicksort
 
+def partition(inpList,start,end):
+    tempPivot = inpList[start]
+    i = start + 1
+    for j in range(start+1,end):
+        if (inpList[j] < tempPivot):
+            inpList[j], inpList[i]=srtswap(inpList[j],inpList[i])
+            i = i + 1
+        j=j+1
+
+        inpList[start], inpList[i]=srtswap(inpList[start],inpList[i])
+    return i-1
+
+def quickSortHelp(inpList,start,end):
+    if start < end:
+        pivot=partition(inpList,start,end)
+        quickSortHelp(inpList,start,pivot-1)
+        quickSortHelp(inpList, pivot,end)
+    else:
+        return
+
+def quickSort(inList):
+    quickSortHelp(inList,0,len(inList)-1)
+
+## quicksort ends
 
 unSortLst = [63, 25, 73, 1, 98, 73, 56, 84, 86, 57, 16, 83]
 unSortLst = [63, 25, 73, 1]

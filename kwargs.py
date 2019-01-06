@@ -1,5 +1,6 @@
-def f(*args,**kwargs): 
+def f(*args,**kwargs):
 	print(args,"---",kwargs)
+	print(type(args))
 	return
 	
 def ff(a,ls):
