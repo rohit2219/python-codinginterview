@@ -54,7 +54,7 @@ def smallestSubArr(inpArr,sumNum):
         winE = winS + 1
 
     return len(resMinArr)
-#print(smallestSubArr([1,2,3,4,5],7))
+print(smallestSubArr([1,2,3,4,5],7))
 
 def numbersAdd(inpArr,sumNum):
     sorted(inpArr)

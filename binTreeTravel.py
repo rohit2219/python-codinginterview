@@ -90,26 +90,96 @@ class binTree(object):
                     print('inserted:', x)
                     break
         return
+    def binTreeReversal(self):
+        if self.isSymmetric(self.rootNode):
+            self.reverseTree(self.rootNode)
+        else:
+            print('Not symmetric')
+            return None
+        return
+    def isSymmetric(self,passNode):
+        if passNode==None:
+            return
+        if passNode.rchild == None and passNode.lchild == None:
+            return True
+        if passNode.rchild == None or passNode.lchild == None:
+            return False
+
+        return self.isSymmetric(passNode.lchild) and self.isSymmetric(passNode.rchild)
+
+    def reverseTree(self,passRoot):
+        # swap nodes
+        if passRoot == None:
+            return
+        tempNode = Node(passRoot.data)
+        tempNode=passRoot.rchild
+        passRoot.rchild=passRoot.lchild
+        passRoot.lchild=tempNode
+        self.reverseTree(passRoot.rchild)
+        self.reverseTree(passRoot.lchild)
+
+        return
+
+    '''
+    Binary Tree reversal - try this
+isSymmetric
+
+isSymmetricHelper(root.left,root.right)
+
+
+isSymmetricHelper(node1,node2){
+
+	if node1 == None and node2 == None
+		return true
+	if node1 == None or node2 == None
+		return false
+	return isSymmetricHelper(node1.left,node1.right) &&
+	isSymmetricHelper(node2.left,node2.right)
+	
+}
+
+def reverseBin(root):
+	if root == None:
+		return
+	temp = Node(root.right)
+	root.right=root.left
+	root.left=temp
+	reverseBin(root.left)
+	reverseBin(root.right)
+
+if issymmetric(root) == True:
+	reverseBin(root)
+else:
+	return None    
+    '''
 if __name__ == "__main__":
 #    node=Node(3)
 #    print(node.data,node.lchild,node.rchild)
 #    exit()
     btree=binTree(5)
-    #btree.insertNode(5)
+    #val = [3, 9, 4, 1, 7, 30]
+    '''
+    simple bin tree
+      5
+    3   9
+    '''
 
-    val = [3, 9, 4, 1, 7, 30]
+    val = [3,9]
     for i in val:
         btree.insertNode(i)
     print("##################################")
     #btree.find(30)
-    print("Found element Find:-",btree.find(9))
-    print("POSTORDER ##################################")
+    #print("Found element Find:-",btree.find(9))
+    #print("POSTORDER ##################################")
 
-    print(btree.postorder(btree.rootNode))
+    #print(btree.postorder(btree.rootNode))
 
-    print("INORDER ##################################")
+    #print("INORDER ##################################")
 
-    print(btree.inorder(btree.rootNode))
+    #print(btree.inorder(btree.rootNode))
     print("PREORDER ##################################")
 
+    print(btree.preorder(btree.rootNode))
+    print('##Reversing && preorder')
+    btree.binTreeReversal()
     print(btree.preorder(btree.rootNode))

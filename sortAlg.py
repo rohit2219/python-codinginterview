@@ -80,7 +80,7 @@ def insertionSort(inList):
         hole = inList[i]
         j = i -1
         print("hole",hole)
-        ## looping from rightmost elemnt and shifting elements right if its greater than hole
+        ## looping from leftmost elemnt and shifting elements right if its greater than hole
         while j >=0 and hole < inList[j]:
              inList[j+1] = inList[j]
              print("shifting",inList[j+1] ,inList[j])
