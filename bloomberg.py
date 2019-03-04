@@ -33,7 +33,28 @@ class Solution:
            usedMap[str[i]] = i
         return maxLen
 x = Solution()
-print(x.rohitFunction('aabccaefghde'))
+#print(x.rohitFunction('aabccaefghde'))
+1,4
+3,5
+
+1,8
+2,4
+
+def interset(int1,int2):
+    if int2[0] > int1[1]:
+        return False
+    if int2[0] > int1[1]
+def bestPrice():
+    intPeriod = [{1,2},{2,4},{4,8}];
+    intPrice = [10, 30, 25];
+    bestPrc=intPrice[0]
+    for i in range(len(intPeriod)):
+        if intersect(intPeriod[i],intPeriod(i+1)):
+            if intPrice[i] < bestPrc:
+                bestPrc=intPrice[i]
+    return bestPrc
+
+
 
 def reArrZer(self,inpArr):
 

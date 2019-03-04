@@ -31,7 +31,7 @@ matrix = [
     [4, 5, 6],
     [7, 8, 9]
 ]
-#print(rotate(matrix))
+print(rotate(matrix))
 
 
 def thirdMax(inpArr):
@@ -44,4 +44,4 @@ def thirdMax(inpArr):
             maxArr = maxArr[0:3]
     print(maxArr)
     return maxArr[2]
-print(thirdMax([2,3,6,5,4,1]))
+#print(thirdMax([2,3,6,5,4,1]))

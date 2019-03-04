@@ -176,3 +176,16 @@ def DynamicProgrammingSingleSellProfit(arr):
 
 arr=[5,10,7,14,4,5]
 print(DynamicProgrammingSingleSellProfit(arr))
+
+[5,10,10,14,14,14,14]
+[5,5,5,5,4,4]
+def maxProfit(inpArr):
+    cheapest = inpArr[0]
+    maxProfit = 0
+    cheapPos=0
+
+    for i in range(1, len(inpArr)):
+        if inpArr[i] < cheapest:
+            cheapest=inpArr[i]
+        profit=max(profit,inpArr[i]-cheapest)
+    return profit
