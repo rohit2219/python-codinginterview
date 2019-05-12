@@ -12,7 +12,23 @@ def add20ToaddFn(inp):
 def addFn(x,y):
     return x+y
 
-print(addFn(2,3),addFn.unwrap(2,3))
+d = {}
+def decorFn(addFn):
+    def decorInnerFn(a,b):
+        if (a,b) in d:
+            print('return from cache')
+            return d((a,b))
+        else:
+            print('return from fn')
+            d[(a,b)]= addFn(a,b)
+            return addFn(a,b)
+    return decorInnerFn
+
+@decorFn
+def add(x,y):
+    return x+y
+print(add(7,2))
+#print(addFn(2,3),addFn.unwrap(2,3))
 
 #generators
 def numberGen(x):
