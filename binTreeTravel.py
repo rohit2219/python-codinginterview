@@ -1,6 +1,19 @@
 #Inorder means it displays it in the ascending order ie lesser to greater, so we travel like left subtree, node, rigthsbtree
 #PREORDER traversal pretty much means that displaying tree in the way its supposd to be displayed, ie start from top node and move down Node left and then right
 #POSTORDER means we display the child node first and then move up to the parent..So left subtree first, right subtree and node
+''''
+iterative
+https://leetcode.com/problems/binary-tree-inorder-traversal/solution/
+https://leetcode.com/problems/binary-tree-preorder-traversal/solution/
+https://leetcode.com/problems/binary-tree-postorder-traversal/solution/
+    test case: [5,3,8,2,4,7,10], tree below
+         5
+     3        8
+  2     4   7   10
+postorder : [2,4,3,7,10,8,5]
+inorder :   [2 3 4 5 7 8 10]
+preorder : [5 3 8 2 4 7 8 ]
+'''
 
 class Node(object):
     def __init__(self, val):
@@ -150,7 +163,33 @@ def reverseBin(root):
 if issymmetric(root) == True:
 	reverseBin(root)
 else:
-	return None    
+	return None    class Solution:
+    def preorderWithLevel(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[int]
+        """
+        if root is None:
+            return []
+        
+        stack, output = [root], []
+        levelCnt=0
+        level=0
+        while stack:
+            levelCnt=len(stack)
+            level = level + 1 
+            print('level:',levelCnt,level)
+            while (levelCnt > 0):
+                root = stack.pop(0)
+                output.append(root.val)
+                if root.right is not None:
+                    stack.append(root.left)
+                if root.left is not None:
+                    stack.append(root.right)                    
+                levelCnt-=1
+        
+        return output
+	
     '''
 if __name__ == "__main__":
 #    node=Node(3)
