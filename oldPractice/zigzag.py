@@ -1,0 +1,3 @@
+
+
+def zigzag(str,numRow):
